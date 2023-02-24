@@ -4,10 +4,10 @@ import {User} from "./interfaces/User";
 import {Release} from "./interfaces/Release";
 import {fetchCollection} from "./api/FetchCollection";
 import {fetchUser} from "./api/FetchUser";
-import {UserProfile} from "./components/UserProfile";
+import {UserProfile} from "./components/UserProfile/user";
 import {CollectionView} from "./components/CollectionView/CollectionView";
 import {ViewModeSelect} from "./components/CollectionView/ViewModeSelect";
-import {CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
+import {CssBaseline, Stack, ThemeProvider, useMediaQuery} from "@mui/material";
 import {makeTheme} from "./utils/theme";
 
 
@@ -43,8 +43,10 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
-            <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
+            <Stack direction={'row'} spacing={2} margin={2}>
+                <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
+                <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
+            </Stack>
             <CollectionView releases={releases} viewMode={viewMode}/>
         </ThemeProvider>
     );
