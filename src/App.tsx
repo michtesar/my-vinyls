@@ -6,14 +6,13 @@ import {fetchCollection} from "./api/FetchCollection";
 import {fetchUser} from "./api/FetchUser";
 import {UserProfile} from "./components/UserProfile";
 import {CollectionView} from "./components/CollectionView/CollectionView";
-import {ViewModes} from "./components/CollectionView/ViewModeSelection/ViewModes";
-import {ViewModeSelect} from "./components/CollectionView/ViewModeSelection/ViewModeSelect";
+import {ViewModeSelect} from "./components/CollectionView/ViewModeSelect";
 
 
 function App() {
     const [releases, setReleases] = useState<Release[]>([])
     const [user, setUser] = useState<User | undefined>(undefined)
-    const [viewMode, setViewMode] = useState(ViewModes.Thumb)
+    const [viewMode, setViewMode] = useState("thumb")
 
     useEffect(() => {
         fetchUser()
@@ -35,7 +34,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <ViewModeSelect setViewMode={setViewMode}/>
+                <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
                 <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
                 <CollectionView releases={releases} viewMode={viewMode}/>
             </header>
