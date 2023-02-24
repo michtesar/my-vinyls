@@ -12,12 +12,33 @@ interface User {
     num_collection: number
 }
 
+interface Release {
+    id: number
+    date_added: string
+    rating: number
+    basic_information: BasicInformation
+}
+
+
+interface Artist {
+    name: string
+    id: number
+}
+
+interface BasicInformation {
+    cover_image: string
+    title: string
+    year: number
+    artists: Artist[]
+    genres: string[]
+}
+
 function App() {
-    const [collection, setCollection] = useState("")
+    const [releases, setReleases] = useState<Release[]>([])
     const [user, setUser] = useState<User | undefined>(undefined)
 
     const fetchCollection = async () => {
-        return await axios.get(`/.netlify/functions/collections`)
+        return await axios.get(`/.netlify/functions/collections?page=1&per_page=10`)
     }
 
     const fetchUser = async () => {
@@ -36,7 +57,7 @@ function App() {
     useEffect(() => {
         fetchCollection()
             .then((response) => {
-                setCollection(response.data.results)
+                setReleases(response.data.releases)
             })
             .catch((error) => console.error(error))
     }, [user])
@@ -46,7 +67,9 @@ function App() {
             <header className="App-header">
                 <img src={user?.avatar_url} alt={user?.username} width={'80px'} height={'80px'}/>
                 <p>{user?.username}</p>
-                <p>{JSON.stringify(collection)}</p>
+                {releases.map((release) => {
+                    return <div key={release.basic_information.title}>{release.basic_information.title}</div>
+                })}
             </header>
         </div>
     );
