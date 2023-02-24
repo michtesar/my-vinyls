@@ -11,7 +11,7 @@ interface Artist {
     id: number
 }
 
-export interface ReleaseInterface {
+export interface Release {
     id: number
     date_added: string
     rating: number

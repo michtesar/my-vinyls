@@ -1,4 +1,4 @@
-export interface UserInterface {
+export interface User {
     uri: string
     username: string
     collection_folders_url: string
