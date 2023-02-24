@@ -13,7 +13,7 @@ export function ViewModeSelect(props: { setViewMode: Dispatch<ViewModes> }) {
     // FIXME: This component and this part in particular needs a refactor
     const options: SelectOption[] = [
         {"value": ViewModes.Thumb, "label": "Thumb"},
-        {"value": ViewModes.List, "label": "Label"},
+        {"value": ViewModes.List, "label": "List"},
     ]
 
     function dispatchViewMode(value: number) {
