@@ -7,7 +7,8 @@ import {fetchUser} from "./api/FetchUser";
 import {UserProfile} from "./components/UserProfile";
 import {CollectionView} from "./components/CollectionView/CollectionView";
 import {ViewModeSelect} from "./components/CollectionView/ViewModeSelect";
-import {createTheme, CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
+import {CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
+import {makeTheme} from "./utils/theme";
 
 
 function App() {
@@ -18,14 +19,9 @@ function App() {
     const [viewMode, setViewMode] = useState("thumb")
 
     const theme = React.useMemo(
-        () =>
-            createTheme({
-                palette: {
-                    mode: prefersDarkMode ? 'dark' : 'light',
-                },
-            }),
+        () => makeTheme(prefersDarkMode),
         [prefersDarkMode],
-    );
+    )
 
     useEffect(() => {
         fetchUser()
