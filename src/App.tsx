@@ -1,41 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
+import {UserInterface} from "./interfaces/User";
+import {ReleaseInterface} from "./interfaces/Collection";
 
-interface User {
-    uri: string
-    username: string
-    collection_folders_url: string
-    wantlist_url: string
-    avatar_url: string
-    banner_url: string
-    num_collection: number
-}
-
-interface Release {
-    id: number
-    date_added: string
-    rating: number
-    basic_information: BasicInformation
-}
-
-
-interface Artist {
-    name: string
-    id: number
-}
-
-interface BasicInformation {
-    cover_image: string
-    title: string
-    year: number
-    artists: Artist[]
-    genres: string[]
-}
 
 function App() {
-    const [releases, setReleases] = useState<Release[]>([])
-    const [user, setUser] = useState<User | undefined>(undefined)
+    const [releases, setReleases] = useState<ReleaseInterface[]>([])
+    const [user, setUser] = useState<UserInterface | undefined>(undefined)
 
     const fetchCollection = async () => {
         return await axios.get(`/.netlify/functions/collections?page=1&per_page=10`)
