@@ -1,7 +1,8 @@
 import React from "react";
+import {CircularProgress} from "@mui/material";
 
 export function UserProfile(props: { username: string | undefined, avatar_url: string | undefined }) {
-    const dimension = "80px"
+    const dimension = 80
 
     return (
         <div>
@@ -11,11 +12,7 @@ export function UserProfile(props: { username: string | undefined, avatar_url: s
                     <p>{props.username}</p>
                 </div>
             )}
-            {(!props.username || !props.avatar_url) && (
-                <div>
-                    <p>Loading...</p>
-                </div>
-            )}
+            {(!props.username || !props.avatar_url) && <CircularProgress/>}
         </div>
     )
 }
