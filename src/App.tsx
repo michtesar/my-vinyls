@@ -5,7 +5,7 @@ import {Release} from "./interfaces/Release";
 import {fetchCollection} from "./api/FetchCollection";
 import {fetchUser} from "./api/FetchUser";
 import {UserProfile} from "./components/UserProfile";
-import {CollectionView} from "./components/CollectionView/Views/CollectionView";
+import {CollectionView} from "./components/CollectionView/CollectionView";
 import {ViewModes} from "./components/CollectionView/ViewModeSelection/ViewModes";
 import {ViewModeSelect} from "./components/CollectionView/ViewModeSelection/ViewModeSelect";
 
