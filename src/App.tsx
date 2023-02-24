@@ -9,6 +9,7 @@ import {CollectionView} from "./components/CollectionView/CollectionView";
 import {ViewModeSelect} from "./components/CollectionView/ViewModeSelect";
 import {CssBaseline, Stack, ThemeProvider, useMediaQuery} from "@mui/material";
 import {makeTheme} from "./utils/theme";
+import {SearchField} from "./components/SearchField/SearchField";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Stack direction={'row'} spacing={2} margin={2}>
                 <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
                 <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
+                <SearchField />
             </Stack>
             <CollectionView releases={releases} viewMode={viewMode}/>
         </ThemeProvider>
