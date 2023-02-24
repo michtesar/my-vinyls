@@ -17,9 +17,9 @@ export function ViewModeSelect(props: { setViewMode: Dispatch<ViewModes> }) {
     ]
 
     function dispatchViewMode(value: number) {
-        if (value == 0) {
+        if (value === 0) {
             props.setViewMode(ViewModes.Thumb);
-        } else if (value == 1) {
+        } else if (value === 1) {
             props.setViewMode(ViewModes.List);
         }
     }

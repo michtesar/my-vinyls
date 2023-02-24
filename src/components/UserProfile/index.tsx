@@ -11,7 +11,7 @@ export function UserProfile(props: { username: string | undefined, avatar_url: s
                     <p>{props.username}</p>
                 </div>
             )}
-            {!props.username || !props.avatar_url && (
+            {(!props.username || !props.avatar_url) && (
                 <div>
                     <p>Loading...</p>
                 </div>

@@ -7,9 +7,9 @@ import {ListView} from "./Views/ListView";
 export function CollectionView(props: { releases: Release[], viewMode: ViewModes }) {
 
     const SelectiveView = (props: { mode: ViewModes, releases: Release[] }) => {
-        if (props.mode == ViewModes.Thumb) {
+        if (props.mode === ViewModes.Thumb) {
             return <ThumbView releases={props.releases}/>
-        } else if (props.mode == ViewModes.List) {
+        } else if (props.mode === ViewModes.List) {
             return <ListView releases={props.releases}/>
         } else {
             return <p>Invalid view</p>
