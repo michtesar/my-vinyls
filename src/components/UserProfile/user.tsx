@@ -1,14 +1,11 @@
 import React from "react";
 import {Avatar, Chip, CircularProgress} from "@mui/material";
+import {openInNewTab} from "../../utils/open";
 
 function generateUserUrl(username: string): string {
     return `https://www.discogs.com/user/${username}/collection`
 }
 
-function openUserOnDiscogs(username: string) {
-    const url = generateUserUrl(username)
-    window.open(url, '_blank');
-}
 
 export function UserProfile(props: { username: string | undefined, avatar_url: string | undefined }) {
     return (
@@ -20,7 +17,7 @@ export function UserProfile(props: { username: string | undefined, avatar_url: s
                     variant="outlined"
                     onClick={() => {
                         if (props.username) {
-                            openUserOnDiscogs(props.username)
+                            openInNewTab(generateUserUrl(props.username))
                         }
                     }}
                 />
