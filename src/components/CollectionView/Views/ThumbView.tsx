@@ -18,8 +18,10 @@ export function ThumbView(props: { releases: Release[] }) {
                         height={dimensions}
                         style={style}
                     />
-                    <Typography key={`title-${release.id}`} variant={'body1'}>{release.basic_information.title}</Typography>
-                    <Typography key={`artist-${release.id}`} variant={'caption'}>{release.basic_information.artists[0].name}</Typography>
+                    <Typography key={`title-${release.id}`} variant={'body1'} noWrap={true}
+                                maxWidth={dimensions}>{release.basic_information.title}</Typography>
+                    <Typography key={`artist-${release.id}`} variant={'caption'} noWrap={true}
+                                maxWidth={{dimensions}}>{release.basic_information.artists[0].name}</Typography>
                 </Stack>
             })}
         </div>
