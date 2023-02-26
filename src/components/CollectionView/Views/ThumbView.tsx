@@ -8,11 +8,11 @@ function generateReleaseUrl(id: number): string {
 }
 
 export function ThumbView(props: { releases: Release[] }) {
-    const dimensions = 150
+    const dimensions = 124
     const style = {borderRadius: 10, margin: 5, cursor: 'pointer'}
 
     return (
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gridGap: '10px'}}>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(124px, 1fr))', gridGap: '10px'}}>
             {props.releases.map((release) => {
                 return <Stack direction={'column'} key={release.id}>
                     <img
