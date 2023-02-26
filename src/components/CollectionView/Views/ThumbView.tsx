@@ -3,8 +3,8 @@ import {Release} from "../../../interfaces/Release";
 import {Stack, Typography} from "@mui/material";
 
 export function ThumbView(props: { releases: Release[] }) {
-    const dimensions = 100
-    const style = {borderRadius: 5, margin: 5}
+    const dimensions = 150
+    const style = {borderRadius: 10, margin: 5}
 
     return (
         <div style={{margin: '0 auto', width: '95%', alignContent: 'center', padding: 10, display: 'grid'}}>
