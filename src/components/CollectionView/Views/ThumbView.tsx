@@ -12,7 +12,7 @@ export function ThumbView(props: { releases: Release[] }) {
     const style = {borderRadius: 10, margin: 5, cursor: 'pointer'}
 
     return (
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(124px, 1fr))', gridGap: '10px'}}>
+        <div style={{margin: 10, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(124px, 1fr))', gridGap: '10px'}}>
             {props.releases.map((release) => {
                 return <Stack direction={'column'} key={release.id}>
                     <img
