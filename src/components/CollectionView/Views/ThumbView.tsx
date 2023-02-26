@@ -11,7 +11,7 @@ export function ThumbView(props: { releases: Release[] }) {
                 return <img
                     src={release.basic_information.cover_image}
                     alt={release.basic_information.title}
-                    key={release.basic_information.title}
+                    key={release.id}
                     width={dimensions}
                     height={dimensions}
                     style={style}

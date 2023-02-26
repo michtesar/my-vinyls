@@ -36,7 +36,7 @@ function App() {
     useEffect(() => {
         fetchCollection()
             .then((response) => {
-                setReleases(response.data.releases)
+                setReleases(response)
             })
             .catch((error) => console.error(error))
     }, [user])
