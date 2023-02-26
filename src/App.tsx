@@ -11,7 +11,6 @@ import {CssBaseline, Stack, ThemeProvider, useMediaQuery} from "@mui/material";
 import {makeTheme} from "./utils/theme";
 import {SearchField} from "./components/SearchField/SearchField";
 
-
 function App() {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
@@ -47,7 +46,7 @@ function App() {
             <Stack direction={'row'} spacing={2} margin={2}>
                 <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
                 <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
-                <SearchField />
+                <SearchField/>
             </Stack>
             <CollectionView releases={releases} viewMode={viewMode}/>
         </ThemeProvider>
