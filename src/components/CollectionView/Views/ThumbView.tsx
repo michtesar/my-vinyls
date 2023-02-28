@@ -2,6 +2,7 @@ import React from "react";
 import {Release} from "../../../interfaces/Release";
 import {Stack, Typography} from "@mui/material";
 import {openInNewTab} from "../../../utils/open";
+import './ThumbView.css'
 
 function generateReleaseUrl(id: number): string {
     return `https://www.discogs.com/release/${id}`
@@ -20,6 +21,7 @@ export function ThumbView(props: { releases: Release[] }) {
             {props.releases.map((release) => {
                 return <Stack direction={'column'} key={release.id}>
                     <img
+                        className={'image-hover'}
                         src={release.basic_information.cover_image}
                         alt={release.basic_information.title}
                         key={release.id}
