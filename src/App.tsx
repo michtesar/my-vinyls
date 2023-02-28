@@ -43,12 +43,18 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Stack direction={'row'} spacing={2} margin={2} alignItems={'center'} sx={{height: 30}}>
-                <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
-                <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
-                <SearchField/>
-            </Stack>
-            <CollectionView releases={releases} viewMode={viewMode}/>
+            <div style={{marginTop: 20, marginBottom: 30}}>
+                <Stack margin={1} direction={'row'} alignItems={'center'} sx={{height: 30}}
+                       justifyContent={"space-between"}>
+                    <SearchField/>
+                    <Stack margin={1} direction={'row'} alignItems={'center'} sx={{height: 30}}
+                           justifyContent={"space-between"}>
+                        <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
+                        <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
+                    </Stack>
+                </Stack>
+                <CollectionView releases={releases} viewMode={viewMode}/>
+            </div>
         </ThemeProvider>
     );
 }
