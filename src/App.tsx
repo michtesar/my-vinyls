@@ -17,6 +17,10 @@ function App() {
     const [releases, setReleases] = useState<Release[]>([])
     const [user, setUser] = useState<User | undefined>(undefined)
     const [viewMode, setViewMode] = useState("thumb")
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [searchText, setSearchText] = useState("")
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [filteredReleases, setFilteredReleases] = useState(releases)
 
     const theme = React.useMemo(
         () => makeTheme(prefersDarkMode),
@@ -46,7 +50,7 @@ function App() {
             <div style={{marginTop: 20, marginBottom: 30}}>
                 <Stack margin={1} direction={'row'} alignItems={'center'} sx={{height: 30}}
                        justifyContent={"space-between"}>
-                    <SearchField/>
+                    <SearchField setSearchText={setSearchText} />
                     <Stack margin={1} direction={'row'} alignItems={'center'} sx={{height: 30}}
                            justifyContent={"space-between"}>
                         <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>

@@ -1,5 +1,6 @@
 import {alpha, InputBase, styled} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import React, {Dispatch} from "react";
 
 
 const Search = styled('div')(({theme}) => ({
@@ -44,7 +45,15 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
     },
 }));
 
-export const SearchField = () => {
+
+export const SearchField = (props: { setSearchText: Dispatch<string> }) => { //@ts-ignore
+
+    function onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        console.log(event.target.value)
+        // FIXME: This is slow
+        // props.setSearchText(event.target.value)
+    }
+
     return (
         <Search>
             <SearchIconWrapper>
@@ -53,6 +62,7 @@ export const SearchField = () => {
             <StyledInputBase
                 placeholder="Search…"
                 inputProps={{'aria-label': 'search'}}
+                onChange={(e) => onChange(e)}
             />
         </Search>
     )
