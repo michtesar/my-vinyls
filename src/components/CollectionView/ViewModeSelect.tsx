@@ -1,6 +1,6 @@
 import React, {Dispatch} from "react";
 import {IconButton} from "@mui/material";
-import GridOnIcon from '@mui/icons-material/GridOn';
+import StyleIcon from '@mui/icons-material/Style';
 
 export function ViewModeSelect(props: { viewMode: string, setViewMode: Dispatch<string> }) {
 
@@ -13,8 +13,8 @@ export function ViewModeSelect(props: { viewMode: string, setViewMode: Dispatch<
     }
 
     return (
-        <IconButton aria-label="delete" onClick={handleTypeSelect}>
-            <GridOnIcon/>
+        <IconButton onClick={handleTypeSelect}>
+            <StyleIcon/>
         </IconButton>
     )
 }
