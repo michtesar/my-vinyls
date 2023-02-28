@@ -43,7 +43,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Stack direction={'row'} spacing={2} margin={2}>
+            <Stack direction={'row'} spacing={2} margin={2} alignItems={'center'} sx={{height: 30}}>
                 <UserProfile username={user?.username} avatar_url={user?.avatar_url}/>
                 <ViewModeSelect viewMode={viewMode} setViewMode={setViewMode}/>
                 <SearchField/>
